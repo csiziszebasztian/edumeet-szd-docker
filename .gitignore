@@ -1,0 +1,6 @@
+/configs/app/*
+/configs/server/*
+/configs/redis/*
+!/configs/app/*.example.*
+!/configs/server/*.example.*
+!/configs/redis/*.example.*
