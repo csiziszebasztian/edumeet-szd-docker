@@ -33,7 +33,7 @@ chmod +x /usr/local/bin/docker-compose
 - edumeet and redis images will be pooled from Docker hub
 - **note**: to enable automatic Docker images update, uncomment `ouroboros` configuration in `docker-compose.yml`
 
-2. Test your service in a webRTC enabled browser: `https://yourDomainOrIPAdress:443`
+2. Test your service in a webRTC enabled browser: `https://yourDomainOrIPAdress/443`
 
 3. If you see "Warning: Potential Security Risk Ahead" click on the "Advanced..." button and click on the "Accept the Risk and Continue" button. 
 
