@@ -8,32 +8,38 @@ This is the container, or a "dockerized" version of the [edumeet-szd](https://gi
 
 1. Git clone this code to your docker machine.
 
-2. Run once `creat-config.sh` which will download current.
+## Install docker engine & docker compose
 
-3. Set the configurations. Use the settings in the thesis. 
+Installation in Debian/Ubuntu environment. More information in the [official site](https://www.docker.com/).
 
-## Install docker-compose
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-Installation in Debian/Ubuntu environment. For other environments, please visit the official site.
-
-Installing `docker-compose`:
-
-```sh
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 ## Run
 
-1. Run with `docker-compose` 
-/ [install docker compose](https://docs.docker.com/compose/install/) /
+1. Run with `docker compose` 
 
 ```sh
-  $ sudo docker-compose up --detach
+  $ sudo docker compose up -d --remove-orphans
 ```
 - edumeet and redis images will be pooled from Docker hub
-- **note**: to enable automatic Docker images update, uncomment `ouroboros` configuration in `docker-compose.yml`
 
-2. Test your service in a webRTC enabled browser: `https://yourDomainOrIPAdress/443`
+2. Test your service in a webRTC enabled browser: `https://yourDomainOrIPAdress`
 
 3. If you see "Warning: Potential Security Risk Ahead" click on the "Advanced..." button and click on the "Accept the Risk and Continue" button. 
 
@@ -44,7 +50,7 @@ chmod +x /usr/local/bin/docker-compose
 To rebuild edumeet docker image (eg. change in .env) use following command:
 
 ```sh
-  $ sudo docker-compose -f docker-compose-build.yml build
+  $ sudo docker compose -f docker-compose-build.yml build
 ```
 
 ## 2 Docker networking
@@ -54,4 +60,3 @@ Container works in "host" network mode, because bridge mode has the following is
 ## Further Informations
 
 Read more about configs and settings in [eduMEET](https://github.com/edumeet/edumeet) README.
-
