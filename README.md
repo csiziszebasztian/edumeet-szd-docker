@@ -4,13 +4,15 @@ Docker hub repository: [edumeet/edumeet](https://hub.docker.com/r/edumeet/edumee
 
 This is the container, or a "dockerized" version of the [edumeet-szd](https://github.com/csiziszebasztian/edumeet-szd).
 
+Tested on Ubuntu 20.04 LTS, Ubuntu 24.04 LTS and Windows 11 with Docker engine. Containers are inaccessible on Windows 11 with Docker desktop. If you know a workaround for this problem you can use it.
+
 ## Run it in few easy steps
 
-1. Git clone this code to your docker machine.
+Git clone this code to your docker machine.
 
 ## Install docker engine & docker compose
 
-Installation in Debian/Ubuntu environment. More information in the [official site](https://www.docker.com/).
+Installation in Debian/Ubuntu environment. More information in the [official site](https://www.docker.com/). 
 
 ```bash
 # Add Docker's official GPG key:
