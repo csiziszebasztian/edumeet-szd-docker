@@ -37,7 +37,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 1. Run with `docker compose` 
 
 ```sh
-  $ sudo docker compose up -d --remove-orphans
+  $ sudo docker compose up -d
 ```
 - edumeet and redis images will be pooled from Docker hub
 
